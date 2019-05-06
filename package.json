@@ -1,0 +1,29 @@
+{
+  "name": "isomorphic",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "lerna run --parallel start",
+    "start:web": "yarn workspace @isomorphic/web start",
+    "start:mobile": "yarn workspace @isomorphic/mobile start"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lerna": "^3.13.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
